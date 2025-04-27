@@ -12,6 +12,7 @@ import { VehicleService } from '../../services/vehicle.service';
 })
 export class ListarVehiculosComponent implements OnInit {
   vehicles: Array<Vehiculo> = [];
+  vehicleCountsByBrand: Map<string, number> = new Map();
 
   constructor(private vehicleService: VehicleService) {}
 
@@ -25,6 +26,17 @@ export class ListarVehiculosComponent implements OnInit {
   loadVehiclesList() {
     this.vehicleService.getAllVehicles().subscribe((vehicles) => {
       this.vehicles = vehicles;
+
+      vehicles.forEach((vehicle) => {
+        if (this.vehicleCountsByBrand.has(vehicle.marca)) {
+          this.vehicleCountsByBrand.set(
+            vehicle.marca,
+            this.vehicleCountsByBrand.get(vehicle.marca)! + 1
+          );
+        } else {
+          this.vehicleCountsByBrand.set(vehicle.marca, 1);
+        }
+      });
     });
   }
 }
