@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row mx-3">
+    <div class="col-8 mr-2">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Línea</th>
+            <th scope="col">Modelo</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let vehicle of vehicles">
+          <tr>
+            <th scope="row">{{ vehicle.id }}</th>
+            <td>{{ vehicle.marca }}</td>
+            <td>{{ vehicle.linea }}</td>
+            <td>{{ vehicle.modelo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>

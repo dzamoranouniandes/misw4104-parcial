@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { VehiculoModule } from './vehiculo/vehiculo.module';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, VehiculoModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, VehiculoModule],
   providers: [],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
