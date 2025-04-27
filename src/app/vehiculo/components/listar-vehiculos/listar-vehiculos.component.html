@@ -1,7 +1,7 @@
 <div class="container-fluid mx-3">
   <div class="row mb-2">
     <div class="col-8 mr-2">
-      <table class="table">
+      <table id="vehicles-table" class="table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
@@ -10,8 +10,8 @@
             <th scope="col">Modelo</th>
           </tr>
         </thead>
-        <tbody *ngFor="let vehicle of vehicles">
-          <tr>
+        <tbody>
+          <tr *ngFor="let vehicle of vehicles">
             <th scope="row">{{ vehicle.id }}</th>
             <td>{{ vehicle.marca }}</td>
             <td>{{ vehicle.linea }}</td>
@@ -23,8 +23,10 @@
     <div class="col-4"></div>
   </div>
   <div class="row">
-    <section *ngFor="let entry of vehicleCountsByBrand | keyvalue">
-      <label>Total {{ entry.key }}: {{ entry.value }}</label>
-    </section>
+    <div id="vehicles-counts">
+      <div *ngFor="let entry of vehicleCountsByBrand | keyvalue">
+        Total {{ entry.key }}: {{ entry.value }}
+      </div>
+    </div>
   </div>
 </div>

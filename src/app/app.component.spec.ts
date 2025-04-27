@@ -1,12 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  @Component({
+    selector: 'app-listar-vehiculos',
+    template: '<div></div>',
+    standalone: false,
+  })
+  class MockListarVehiculosComponent {}
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterModule.forRoot([])],
-      declarations: [AppComponent],
+      declarations: [AppComponent, MockListarVehiculosComponent],
     }).compileComponents();
   });
 
